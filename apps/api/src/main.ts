@@ -13,19 +13,20 @@ async function bootstrap() {
   ].filter(Boolean);
 
   app.enableCors({
-    origin: (origin, callback) => {
-      // allow server-to-server & tools like Postman
-      if (!origin) return callback(null, true);
+    // origin: (origin, callback) => {
+    //   // allow server-to-server & tools like Postman
+    //   if (!origin) return callback(null, true);
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
+    //   if (allowedOrigins.includes(origin)) {
+    //     return callback(null, true);
+    //   }
 
-      return callback(new Error(`CORS blocked origin: ${origin}`), false);
-    },
+    //   return callback(new Error(`CORS blocked origin: ${origin}`), false);
+    // },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: false,
+    origin: true,
+    credentials: true,
   });
 
   app.useGlobalPipes(

@@ -5,7 +5,10 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.enableCors({
-    origin: process.env.CLIENT_ORIGIN ?? 'http://localhost:3000',
+    origin: process.env.CLIENT_ORIGIN ?? 'http://localhost:3000', // or an array
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // ONLY if you use cookies/auth
   });
   app.useGlobalPipes(
     new ValidationPipe({
@@ -13,12 +16,7 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  app.enableCors({
-    origin: process.env.CLIENT_ORIGIN ?? 'http://localhost:3000', // or an array
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // ONLY if you use cookies/auth
-  });
+
   await app.listen(process.env.PORT ?? 3001);
 }
 bootstrap();

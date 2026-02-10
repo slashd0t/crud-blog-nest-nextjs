@@ -20,6 +20,10 @@ import { PostsModule } from './posts/posts.module';
         password: configService.get<string>('POSTGRES_PASSWORD', 'postgres'),
         database: configService.get<string>('POSTGRES_DB', 'blog'),
         synchronize: true,
+        ssl:
+          process.env.NODE_ENV === 'production'
+            ? { rejectUnauthorized: false }
+            : false,
         autoLoadEntities: true,
       }),
     }),

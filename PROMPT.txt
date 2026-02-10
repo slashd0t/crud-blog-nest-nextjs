@@ -1,0 +1,3 @@
+Prompt:
+Create a Blog CRUD app using Next.js 15 and Shadcn UI. 
+The Backend for CRUD app is Nest.js with PostgreSQL.

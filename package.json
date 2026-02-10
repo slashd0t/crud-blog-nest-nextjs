@@ -1,0 +1,14 @@
+{
+  "name": "blog-nestjs-nextjs",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "pnpm -C apps/web dev",
+    "dev:api": "pnpm -C apps/api start:dev",
+    "lint": "pnpm -C apps/web lint",
+    "build": "pnpm -C apps/web build",
+    "start": "pnpm -C apps/web start"
+  }
+}

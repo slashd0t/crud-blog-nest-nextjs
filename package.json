@@ -10,5 +10,11 @@
     "lint": "pnpm -C apps/web lint",
     "build": "pnpm -C apps/web build",
     "start": "pnpm -C apps/web start"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^16.1.6",
+    "eslint": "^10.0.0",
+    "eslint-config-next": "^16.1.6",
+    "eslint-plugin-next": "^0.0.0"
   }
 }

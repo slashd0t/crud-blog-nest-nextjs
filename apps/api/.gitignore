@@ -19,8 +19,10 @@
 
 # production
 /build
-dist/
-/dist/
+dist
+/dist
+/dist
+/api/dist
 
 # misc
 .DS_Store
